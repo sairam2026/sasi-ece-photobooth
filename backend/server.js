@@ -8,12 +8,13 @@ const app = express();
 // Connect to MongoDB
 connectDB();
 
-// Middleware
+// Middleware - allow all origins
 app.use(cors({
-  origin: process.env.FRONTEND_URL || '*',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
+app.options('*', cors());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 
@@ -21,9 +22,15 @@ app.use(express.urlencoded({ extended: true, limit: '50mb' }));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/photos', require('./routes/photos'));
 
-// Health check
+// Health check - shows env var status for debugging
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+  res.json({
+    status: 'ok',
+    timestamp: new Date().toISOString(),
+    admin: process.env.ADMIN_USERNAME || 'NOT SET',
+    mongo: process.env.MONGODB_URI ? 'SET' : 'NOT SET',
+    cloudinary: process.env.CLOUDINARY_CLOUD_NAME || 'NOT SET',
+  });
 });
 
 // 404 handler
@@ -42,5 +49,7 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`🚀 SASI ECE Photo Booth server running on port ${PORT}`);
+  console.log('SASI ECE Photo Booth server running on port ' + PORT);
+  console.log('Admin: ' + process.env.ADMIN_USERNAME);
+  console.log('MongoDB: ' + (process.env.MONGODB_URI ? 'SET' : 'NOT SET'));
 });
