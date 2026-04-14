@@ -69,7 +69,7 @@ const Gallery = () => {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 text-center">
           <p className="text-gold-500 text-xs font-mono tracking-[0.3em] uppercase mb-3 animate-fade-in">
-            Sri Aditya School of Engineering
+            SASI INSTITUE OF TECHNOLOGY AND ENGINERRING
           </p>
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-3 animate-slide-up">
             ECE Farewell
