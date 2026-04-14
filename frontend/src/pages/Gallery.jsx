@@ -46,20 +46,7 @@ const BANNER_SRC = '/banner.png';
               📢 Announcement
             </p>
           </div>
-          <button
-            onClick={onClose}
-            aria-label="Close announcement"
-            className="w-8 h-8 rounded-full flex items-center justify-center transition-all"
-            style={{ background:'rgba(255,255,255,0.18)' }}
-            onMouseEnter={e => e.currentTarget.style.background='rgba(255,255,255,0.35)'}
-            onMouseLeave={e => e.currentTarget.style.background='rgba(255,255,255,0.18)'}
-          >
-            <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24"
-              stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
+
 
         {/* Media */}
         <div className="relative bg-black flex items-center justify-center"
