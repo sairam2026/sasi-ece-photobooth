@@ -74,15 +74,7 @@ const BANNER_SRC = '/banner.png';
           <p className="text-xs font-medium" style={{ color:'#1B3A8C' }}>
             SASI Institute of Technology &amp; Engineering · ECE Farewell 2026
           </p>
-          <button
-            onClick={onClose}
-            className="px-5 py-1.5 rounded-lg text-white text-xs font-semibold transition-all"
-            style={{ background:'#CC0000' }}
-            onMouseEnter={e => e.currentTarget.style.background='#a30000'}
-            onMouseLeave={e => e.currentTarget.style.background='#CC0000'}
-          >
-            ✕ Close
-          </button>
+        
         </div>
       </div>
     </div>
