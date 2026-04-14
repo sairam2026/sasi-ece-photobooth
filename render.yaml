@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: sasi-ece-api
+    env: node
+    region: singapore
+    plan: free
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 5000
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        value: mongodb+srv://ganeshkatnam_db_user:OtLx7G1ioQHb55y6@cluster0.atsgeso.mongodb.net/sasi_ece_photobooth?retryWrites=true&w=majority&appName=Cluster0
+      - key: JWT_SECRET
+        value: sasi_ece_farewell_2024_jwt_secret_key
+      - key: JWT_EXPIRES_IN
+        value: 7d
+      - key: CLOUDINARY_CLOUD_NAME
+        value: dqqmvy2i1
+      - key: CLOUDINARY_API_KEY
+        value: 881323318663225
+      - key: CLOUDINARY_API_SECRET
+        value: pqh6fWV3_2gCRk3Y9pIS6OPvWfc
+      - key: CLOUDINARY_FOLDER
+        value: sasi_ece_farewell
+      - key: ADMIN_USERNAME
+        value: farewell
+      - key: ADMIN_PASSWORD
+        value: admin123
+      - key: FRONTEND_URL
+        value: https://sasi-ece.netlify.app
